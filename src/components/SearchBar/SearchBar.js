@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import {Colors} from '../../theme/Colors';
 import Icon from 'react-native-vector-icons/dist/Feather';
+import {Spacings} from '../../theme/Spacings';
 
 const SearchBar = () => {
   return (
@@ -31,12 +32,13 @@ const Container = styled.View`
   flex-direction: row;
   align-items: center;
   background-color: ${props => props.theme.inputBgDefault};
-  margin: 0 16px 8px;
+  margin: 0 ${Spacings.Medium} ${Spacings.XSmall};
   border-radius: 6px;
   height: 40px;
 `;
 
 const Text = styled.Text`
+  font-family: Roboto;
   font-size: 12px;
   color: ${props => props.theme.inputTextDefault};
 `;
