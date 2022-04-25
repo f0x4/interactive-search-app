@@ -1,22 +1,17 @@
 import {View} from 'react-native';
 import React from 'react';
 import styled from 'styled-components/native';
+import Screen from '../components/Screen/Screen';
 import SearchBar from '../components/SearchBar/SearchBar';
-import SearchSaver from '../components/SearchSaver/SearchSaver';
-import {Spacings} from '../theme/Spacings';
+import EmptySearchList from '../components/EmptySearchList/EmptySearchList';
 
 const SearchScreen = () => {
   return (
-    <Container>
+    <Screen>
       <SearchBar />
-      <SearchSaver />
-    </Container>
+      <EmptySearchList />
+    </Screen>
   );
 };
-
-const Container = styled.View`
-  flex: 1;
-  background-color: ${props => props.theme.backgroundDefault};
-`;
 
 export default SearchScreen;
