@@ -14,13 +14,12 @@ const Carousel = props => {
 
   const onLayout = event => {
     const {width: itemWidth} = event.nativeEvent.layout;
-    console.log(itemWidth);
     setItemWidth(itemWidth);
   };
 
-  const renderItem = ({item}) => (
+  const renderItem = ({item, index}) => (
     <Container onLayout={onLayout} itemsGap={itemsGap}>
-      {CarouselItem(item)}
+      {CarouselItem(item, index)}
     </Container>
   );
 

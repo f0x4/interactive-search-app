@@ -4,29 +4,38 @@ import styled from 'styled-components/native';
 import {Spacings} from '../../../theme/Spacings';
 import {Title} from '../../Typography/AktivGrotesk/Title/Title';
 import {Subtitle} from '../../Typography/Montserrat/Subtitle/Subtitle';
+import Animated, {FadeIn} from 'react-native-reanimated';
+import {FadeInLeft, FadeInRight} from '../../../animations/animations';
 
 const CollectionS = props => {
   return (
     <Wrapper>
       <Container>
-        <ImageOne style={styles.shadow}>
+        <ImageOne
+          as={Animated.View}
+          entering={props.left ? FadeInLeft(200) : FadeInRight()}
+          style={styles.shadow}>
           <Image source={require('../../../assets/images/c1.png')} />
         </ImageOne>
-        <ImageTwo style={styles.shadow2}>
-          <Image
-            style={{opacity: 0.95}}
-            source={require('../../../assets/images/c1.png')}
-          />
+        <ImageTwo
+          as={Animated.View}
+          entering={props.left ? FadeInLeft(100) : FadeInRight(100)}
+          style={styles.shadow2}>
+          <Image source={require('../../../assets/images/c1.png')} />
         </ImageTwo>
-        <ImageThree style={styles.shadow3}>
-          <Image
-            style={{opacity: 0.9}}
-            source={require('../../../assets/images/c1.png')}
-          />
+        <ImageThree
+          as={Animated.View}
+          entering={props.left ? FadeInLeft() : FadeInRight(200)}
+          style={styles.shadow3}>
+          <Image source={require('../../../assets/images/c1.png')} />
         </ImageThree>
       </Container>
-      <CentredTitle>{props?.x || 'High as Hope'} </CentredTitle>
-      <CentredSubtitle>Various Artists</CentredSubtitle>
+      <CentredTitle as={Animated.Text} entering={FadeIn.duration(500)}>
+        {props?.title || 'No title'}{' '}
+      </CentredTitle>
+      <CentredSubtitle as={Animated.Text} entering={FadeIn.duration(500)}>
+        Various Artists
+      </CentredSubtitle>
     </Wrapper>
   );
 };
@@ -50,7 +59,7 @@ const ImageOne = styled.View`
   position: absolute;
   box-shadow: 8px 0px 24px #000;
   overflow: visible;
-  background-color: black;
+  background-color: transparent;
   border-radius: 4px;
 `;
 
@@ -76,7 +85,7 @@ const CentredSubtitle = styled(Subtitle)`
 const styles = StyleSheet.create({
   shadow: {
     borderRadius: 4,
-    backgroundColor: 'black',
+    backgroundColor: 'transparent',
     shadowColor: 'black',
     elevation: 8,
   },

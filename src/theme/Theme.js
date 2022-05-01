@@ -19,13 +19,13 @@ export const LightTheme = {
   backgroundDefault: Colors.ligtGrey050,
   statusBarBg: Colors.ligtGrey050,
 
-  inputSelectionColor: 'black',
+  inputSelectionColor: Colors.darkGrey700,
   inputTextDefault: Colors.ligtGrey500,
   inputTextFocus: '#2d373c',
   inputBgDefault: '#e7eff2',
   inputIconDefault: Colors.ligtGrey300,
 
-  headline: 'black',
+  headline: Colors.darkGrey700,
   subtitle: Colors.ligtGrey300,
   subtitleUnic: '#94a7af',
 };
